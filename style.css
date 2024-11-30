@@ -1,0 +1,107 @@
+/* Global Styling */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #000000, #1a1a1a);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SVG Flower Styling */
+.flower {
+    width: 250px;
+    height: 350px;
+}
+
+/* Petals Styling */
+.petal {
+    fill: none;
+    stroke: rgba(255, 0, 150, 0.7);
+    stroke-width: 3;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 150, 0.8));
+    transform-origin: 100px 100px; /* Center of the flower */
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    animation: petal-bloom 3s ease-out forwards, petal-rotate 10s linear infinite;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(60deg); }
+.petal:nth-child(3) { transform: rotate(120deg); }
+.petal:nth-child(4) { transform: rotate(180deg); }
+.petal:nth-child(5) { transform: rotate(240deg); }
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+/* Center Styling */
+.center {
+    fill: rgba(255, 255, 0, 0.8);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1));
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(0);
+    animation: center-bloom 3s ease-out forwards 1.8s;
+}
+
+/* Stem Styling */
+.stem {
+    fill: rgba(0, 255, 0, 0.7);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7));
+    animation: grow-stem 2s ease-out forwards 1s;
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+/* Leaves Styling */
+.leaf {
+    fill: none;
+    stroke: rgba(0, 255, 0, 0.7);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7));
+    transform-origin: center;
+    opacity: 0;
+    animation: grow-leaf 2s ease-out forwards;
+}
+
+.left-leaf {
+    animation-delay: 1.2s;
+}
+
+.right-leaf {
+    animation-delay: 1.5s;
+}
+
+/* Animations */
+@keyframes petal-bloom {
+    0% { opacity: 0; transform: scale(0) rotate(0deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes petal-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes center-bloom {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes grow-stem {
+    0% { opacity: 0; transform: scaleY(0); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes grow-leaf {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1); }
+}
